@@ -1,4 +1,3 @@
-
 <html>
 
 <head>
@@ -18,14 +17,19 @@
 
 <?php
 
-$headers = array('http'=>array('method'=>'GET','header'=>'Content: type=application/json \r\n'.'$agent \r\n'.'$hash'));
-
-$context=stream_context_create($headers);
+$context = stream_context_create(array(
+  'http' => array(
+    'method' => 'GET',
+    'agent'  => $agent,
+    'header' => "Content-Type: type=application/json\r\n"
+        . "X-Api-Signature: $hash"
+    )
+  )
+);
 
 $str = file_get_contents("Basic.txt",FILE_USE_INCLUDE_PATH,$context);
 
-$str=utf8_encode($str);
-
+//$str=utf8_encode($str);
 $json=json_decode($str,true);
 
 ?>
