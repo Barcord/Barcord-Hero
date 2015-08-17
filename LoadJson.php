@@ -17,6 +17,7 @@ function openRedisConnect()
 
 function WriteAllKeys()
 {
+	echo 'WriteAllKeys';
 	global $redisObj;
 	$keyarray =  $redisObj->keys('*');
 	foreach ($keyarray as $value)
@@ -29,6 +30,7 @@ openRedisConnect();
 
 echo $redisObj->get('p');
 echo '<br>';
+echo 'Time';
 echo $redisObj->ttl('p');
 echo '<br>';
 WriteAllKeys();
