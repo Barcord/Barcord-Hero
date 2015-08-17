@@ -1,4 +1,27 @@
 <?php
+ if(isset($_POST['openRedisConnect']))
+{
+    openRedisConnect();
+}
+else if(isset($_POST['WriteAllKeys']))
+{
+    WriteAllKeys();
+}
+else if(isset($_POST['WireAllValues']))
+{
+	WireAllValues();
+}
+else if(isset($_POST['DeleteAllData']))
+{
+    DeleteAllData();
+}
+else if(isset($_POST['GetAllKeysTTL']))
+{
+	GetAllKeysTTL();
+}
+?>
+
+<?php
 
 $redisObj = new Redis();
 
@@ -54,29 +77,6 @@ function GetAllKeysTTL()
 
 ?>
 
-<script>
-function openRedisConnect(){
- alert("<?PHP openRedisConnect(); ?>");
- }
-
-function WriteAllKeys(){
-	 alert("<?PHP WriteAllKeys(); ?>");
- }
-
-
-function WireAllValues(){
-	 alert("<?PHP WireAllValues(); ?>");
- }
-
-
-function DeleteAllData(){
-	 alert("<?PHP DeleteAllData(); ?>");
- }
-
-function GetAllKeysTTL(){
-	 alert("<?PHP GetAllKeysTTL(); ?>");
-}
-</script>
 
 <html>
 
@@ -84,9 +84,12 @@ function GetAllKeysTTL(){
     <meta charset='utf-8'/>
 </head>
 <body>
-	<button onclick="openRedisConnect()">openRedisConnect</button>
-	<button onclick="WriteAllKeys()">WriteAllKeys</button>
-	<button onclick="WireAllValues()">WireAllValues</button>
-	<button onclick="DeleteAllData()">DeleteAllData</button>
-	<button onclick="GetAllKeysTTL()">GetAllKeysTTL</button>
+	<form action="contacts.php" method="post">
+	<input type="text" name="txt"/>
+	<input type="submit" name="openRedisConnect" value="openRedisConnect" />
+	<input type="submit" name="WriteAllKeys" value="WriteAllKeys"/>
+	<input type="submit" name="WireAllValues" value="WireAllValues"/>
+	<input type="submit" name="DeleteAllData" value="DeleteAllData"/>
+	<input type="submit" name="GetAllKeysTTL" value="GetAllKeysTTL"/>
+	</form>
 </body>
