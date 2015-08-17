@@ -5,13 +5,8 @@ $redisObj = new Redis();
 function openRedisConnect()
 {
 	global $redisObj;
-
 	$redisObj->connect('barcord1.ddtmfr.0001.apne1.cache.amazonaws.com');
 	
-	echo $redisObj->get('p');
-	echo '<br>';
-	echo "connect succ";
-	echo '<br>';
 	return $redisObj;
 }
 
@@ -26,7 +21,7 @@ function WriteAllKeys()
 		echo '<br>';
 	}
 }
-//openRedisConnect();
+openRedisConnect();
 
 echo $redisObj->get('p');
 echo '<br>';
