@@ -84,8 +84,8 @@ function GetAllKeysTTL()
     <meta charset='utf-8'/>
 </head>
 <body>
-	<form action="contacts.php" method="post">
-	<input type="text" name="txt"/>
+	<form action="LoadJson.php" method="post">
+
 	<input type="submit" name="openRedisConnect" value="openRedisConnect" />
 	<input type="submit" name="WriteAllKeys" value="WriteAllKeys"/>
 	<input type="submit" name="WireAllValues" value="WireAllValues"/>
