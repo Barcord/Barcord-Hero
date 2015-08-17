@@ -1,27 +1,4 @@
 <?php
- if(isset($_POST['openRedisConnect']))
-{
-    openRedisConnect();
-}
-else if(isset($_POST['WriteAllKeys']))
-{
-    WriteAllKeys();
-}
-else if(isset($_POST['WireAllValues']))
-{
-	WireAllValues();
-}
-else if(isset($_POST['DeleteAllData']))
-{
-    DeleteAllData();
-}
-else if(isset($_POST['GetAllKeysTTL']))
-{
-	GetAllKeysTTL();
-}
-?>
-
-<?php
 
 $redisObj = new Redis();
 
