@@ -11,10 +11,13 @@ function openRedisConnect()
 	echo $redisObj->get('p');
 	echo '<br>';
 	echo "connect succ";
+	echo '<br>';
 	return $redisObj;
 }
 
 openRedisConnect();
 
 echo $redisObj->get('p');
+echo '<br>';
+echo $redisObj->keys();
 ?>
