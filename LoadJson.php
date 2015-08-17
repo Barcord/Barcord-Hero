@@ -32,14 +32,61 @@ function WireAllValues()
 		echo '<br>';
 	}
 }
-openRedisConnect();
 
-echo '<br>';
-echo 'Time : ';
-echo $redisObj->ttl('p');
-echo '<br>';
-WriteAllKeys();
-echo '<br>';
-WireAllValues();
+function  DeleteAllData()
+{
+	echo 'DeleteAllData<br>';
+	global $redisObj;
+	$redisObj->flushAll();
+}
+
+function GetAllKeysTTL()
+{
+	echo 'GetAllKeysTTL<br>';
+	global $redisObj;
+	$keyarray =  $redisObj->keys('*');
+	foreach ($keyarray as $value)
+	{
+		echo $value. ' : '.$redisObj->ttl($value);
+		echo '<br>';
+	}
+}
 
 ?>
+
+<script>
+function openRedisConnect(){
+ alert("<?PHP openRedisConnect(); ?>");
+ }
+
+function WriteAllKeys(){
+	 alert("<?PHP WriteAllKeys(); ?>");
+ }
+
+
+function WireAllValues(){
+	 alert("<?PHP WireAllValues(); ?>");
+ }
+
+
+function DeleteAllData(){
+	 alert("<?PHP DeleteAllData(); ?>");
+ }
+
+function GetAllKeysTTL(){
+	 alert("<?PHP GetAllKeysTTL(); ?>");
+}
+</script>
+
+<html>
+
+<head>
+    <meta charset='utf-8'/>
+</head>
+<body>
+	<button onclick="openRedisConnect()">openRedisConnect</button>
+	<button onclick="openRedisConnect()">WriteAllKeys</button>
+	<button onclick="openRedisConnect()">WireAllValues</button>
+	<button onclick="openRedisConnect()">DeleteAllData</button>
+	<button onclick="openRedisConnect()">GetAllKeysTTL</button>
+</body>
