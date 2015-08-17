@@ -19,5 +19,7 @@ openRedisConnect();
 
 echo $redisObj->get('p');
 echo '<br>';
-echo $redisObj->keys();
+echo $redisObj->ttl('p');
+echo '<br>';
+echo $redisObj->keys('*');
 ?>
