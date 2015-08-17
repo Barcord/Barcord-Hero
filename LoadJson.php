@@ -28,7 +28,7 @@ function WireAllValues()
 	$keyarray =  $redisObj->keys('*');
 	foreach ($keyarray as $value)
 	{
-		echo $redisObj->get($value);
+		echo $value. ' : '.$redisObj->get($value);
 		echo '<br>';
 	}
 }
