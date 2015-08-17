@@ -75,24 +75,9 @@ function GetAllKeysTTL()
 	}
 }
 
-openRedisConnect();
+
 echo '<br>';
 WriteAllKeys();
 ?>
 
 
-<html>
-
-<head>
-    <meta charset='utf-8'/>
-</head>
-<body>
-	<form action="LoadJson.php" method="post">
-
-	<input type="submit" name="openRedisConnect" value="openRedisConnect" />
-	<input type="submit" name="WriteAllKeys" value="WriteAllKeys"/>
-	<input type="submit" name="WireAllValues" value="WireAllValues"/>
-	<input type="submit" name="DeleteAllData" value="DeleteAllData"/>
-	<input type="submit" name="GetAllKeysTTL" value="GetAllKeysTTL"/>
-	</form>
-</body>
