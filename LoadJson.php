@@ -1,9 +1,11 @@
+
 <?php
 
 $redisObj = new Redis();
 
 function openRedisConnect()
 {
+	global $redisObj;
 	$redisObj->connect('barcord1.ddtmfr.0001.apne1.cache.amazonaws.com');
 	echo 'Connect Succ';
 	return $redisObj;
@@ -11,7 +13,7 @@ function openRedisConnect()
 
 function WriteAllKeys()
 {
-	$redisObj = openRedisConnect();
+	global $redisObj;
 	echo 'WriteAllKeys<br>';
 
 	$keyarray =  $redisObj->keys('*');
@@ -52,9 +54,16 @@ function GetAllKeysTTL()
 	}
 }
 
-
+openRedisConnect();
 echo '<br>';
 WriteAllKeys();
+echo '<br>';
+WireAllValues();
+echo '<br>';
+DeleteAllData();
+echo '<br>';
+GetAllKeysTTL();
+echo '<br>';
 ?>
 
 
