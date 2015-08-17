@@ -1,5 +1,6 @@
 <?php
 
+$redisObj = new Redis();
 
 function openRedisConnect()
 {
