@@ -6,7 +6,7 @@ function openRedisConnect()
 {
 	global $redisObj;
 	$redisObj->connect('barcord1.ddtmfr.0001.apne1.cache.amazonaws.com');
-	
+	echo 'Connect Succ';
 	return $redisObj;
 }
 
@@ -85,8 +85,8 @@ function GetAllKeysTTL(){
 </head>
 <body>
 	<button onclick="openRedisConnect()">openRedisConnect</button>
-	<button onclick="openRedisConnect()">WriteAllKeys</button>
-	<button onclick="openRedisConnect()">WireAllValues</button>
-	<button onclick="openRedisConnect()">DeleteAllData</button>
-	<button onclick="openRedisConnect()">GetAllKeysTTL</button>
+	<button onclick="WriteAllKeys()">WriteAllKeys</button>
+	<button onclick="WireAllValues()">WireAllValues</button>
+	<button onclick="DeleteAllData()">DeleteAllData</button>
+	<button onclick="GetAllKeysTTL()">GetAllKeysTTL</button>
 </body>
