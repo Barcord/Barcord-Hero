@@ -75,6 +75,9 @@ function GetAllKeysTTL()
 	}
 }
 
+openRedisConnect();
+echo '<br>';
+WriteAllKeys();
 ?>
 
 
