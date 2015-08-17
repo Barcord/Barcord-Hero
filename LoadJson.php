@@ -54,6 +54,13 @@ function GetAllKeysTTL()
 	}
 }
 
+function CloseRedis()
+{
+	echo 'CloseRedis<br>';
+	global $redisObj;
+	$redisObj->close();
+}
+
 openRedisConnect();
 echo '<br>';
 WriteAllKeys();
