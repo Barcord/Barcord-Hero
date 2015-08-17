@@ -21,13 +21,25 @@ function WriteAllKeys()
 		echo '<br>';
 	}
 }
+function WireAllValues()
+{
+	echo 'WireAllValues<br>';
+	global $redisObj;
+	$keyarray =  $redisObj->keys('*');
+	foreach ($keyarray as $value)
+	{
+		echo $redisObj->get($value);
+		echo '<br>';
+	}
+}
 openRedisConnect();
 
-echo $redisObj->get('p');
 echo '<br>';
 echo 'Time : ';
 echo $redisObj->ttl('p');
 echo '<br>';
 WriteAllKeys();
+echo '<br>';
+WireAllValues();
 
 ?>
