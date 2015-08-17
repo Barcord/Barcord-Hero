@@ -15,11 +15,22 @@ function openRedisConnect()
 	return $redisObj;
 }
 
+function WriteAllKeys()
+{
+	global $redisObj;
+	$keyarray =  $redisObj->keys('*');
+	foreach ($keyarray as $value)
+	{
+		echo $value;
+		echo '<br>';
+	}
+}
 openRedisConnect();
 
 echo $redisObj->get('p');
 echo '<br>';
 echo $redisObj->ttl('p');
 echo '<br>';
-echo $redisObj->keys('*');
+WriteAllKeys();
+
 ?>
