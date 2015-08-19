@@ -46,7 +46,7 @@ function DeleteData($key)
 {
 	echo 'DeleteData<br>';
 	global $redisObj;
-	$redisObj->del($key);
+	$redisObj->delete($key);
 }
 function GetAllKeysTTL()
 {
@@ -73,11 +73,23 @@ function InsertRedis($key, $value)
 	$redisObj->set($key, $value);
 }
 
+function InsertRedis_Hash($key, $hashKey, $value)
+{
+	global $redisObj;
+	return $redisObj->hSet($key, $hashKey, $value);
+}
+
 function GetRedisValue($key)
 {
 	echo 'GetRedisValue<br>';
 	global $redisObj;
 	return  $redisObj->get($key);
+}
+
+function GetRedisValue_Hash($key)
+{
+	global $redisObj;
+	return  $redisObj->hVals($key);
 }
 
 function LoadJsonFile($FileName)
@@ -104,15 +116,16 @@ function LoadGachaBase()
 	echo 'LoadGachaBase<br>';
 	$jsonData = LoadJsonFile("GachaBase.txt");
 	$TotalGachaBaseRate = 0;
+	DeleteData("GachaBase");
 	foreach ($jsonData as $key => $value)
 	{		
 		$TotalGachaBaseRate = $TotalGachaBaseRate + $value['RATE'];
+		InsertRedis_Hash("GachaBase", $key, $value);
 	}	
 	
 	DeleteData("TotalGachaBaseRate");
-	DeleteData("GachaBase");
 	InsertRedis("TotalGachaBaseRate", $TotalGachaBaseRate);
-	InsertRedis("GachaBase", $jsonData);
+
 }
 
 
@@ -135,7 +148,7 @@ GetAllKeysTTL();
 echo '<br>';
 echo GetRedisValue("TotalGachaBaseRate");
 echo '<br>';
-$returnValue = GetRedisValue("GachaBase");
+$returnValue = GetRedisValue_Hash("GachaBase");
 echo $returnValue;
 
 foreach ($returnValue as $key => $value)
