@@ -121,7 +121,7 @@ function LoadGachaBase()
 	foreach ($jsonData as $key => $value)
 	{		
 		$TotalGachaBaseRate = $TotalGachaBaseRate + $value['RATE'];
-		InsertRedis_Hash("GachaBase", $key, $value);
+		InsertRedis_Hash("GachaBase", $value['ID'], $value['RATE']);
 	}	
 	
 	DeleteData("TotalGachaBaseRate");
@@ -152,8 +152,8 @@ echo $returnValue.'<br>';
 
 foreach ($returnValue as $key => $value)
 {
-	echo $value['ID'].'  '.$key;
-	echo $value['RATE'].' '. $value . "<br>";
+	echo $key.' ';
+	echo $value . "<br>";
 }
 ?>
 
