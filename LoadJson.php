@@ -76,6 +76,7 @@ function InsertRedis($key, $value)
 function InsertRedis_Hash($key, $hashKey, $value)
 {
 	global $redisObj;
+	echo $hashKey.' '.$value.'<br>';
 	return $redisObj->hSet($key, $hashKey, $value);
 }
 
@@ -136,25 +137,23 @@ WriteAllKeys();
 echo '<br>';
 WireAllValues();
 echo '<br>';
-GetAllKeysTTL();
-echo '<br>';
+
+
 LoadGachaBase();
 echo '<br>';
 WriteAllKeys();
 echo '<br>';
 WireAllValues();
 echo '<br>';
-GetAllKeysTTL();
-echo '<br>';
 echo GetRedisValue("TotalGachaBaseRate");
 echo '<br>';
 $returnValue = GetRedisValue_Hash("GachaBase");
-echo $returnValue;
+echo $returnValue.'<br>';
 
 foreach ($returnValue as $key => $value)
 {
-	echo $value['ID'];
-	echo $value['RATE']."<br>";
+	echo $value['ID'].'  '.$key;
+	echo $value['RATE'].' '. $value . "<br>";
 }
 ?>
 
