@@ -90,7 +90,7 @@ function GetRedisValue($key)
 function GetRedisValue_Hash($key)
 {
 	global $redisObj;
-	return  $redisObj->hVals($key);
+	return  $redisObj->hGetAll($key);
 }
 
 function LoadJsonFile($FileName)
