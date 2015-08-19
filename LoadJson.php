@@ -35,13 +35,19 @@ function WireAllValues()
 	}
 }
 
-function  DeleteAllData()
+function  DeleteAllDatas()
 {
 	echo 'DeleteAllData<br>';
 	global $redisObj;
 	$redisObj->flushAll();
 }
 
+function DeleteData($key)
+{
+	echo 'DeleteData<br>';
+	global $redisObj;
+	$redisObj->del($key);
+}
 function GetAllKeysTTL()
 {
 	echo 'GetAllKeysTTL<br>';
@@ -67,6 +73,12 @@ function InsertRedis($key, $value)
 	$redisObj->set($key, $value);
 }
 
+function GetRedisValue($key)
+{
+	echo 'GetRedisValue<br>';
+	global $redisObj;
+	return  $redisObj->get($key);
+}
 
 function LoadJsonFile($FileName)
 {
@@ -97,6 +109,8 @@ function LoadGachaBase()
 		$TotalGachaBaseRate = $TotalGachaBaseRate + $value['RATE'];
 	}	
 	
+	DeleteData("TotalGachaBaseRate");
+	DeleteData("GachaBase");
 	InsertRedis("TotalGachaBaseRate", $TotalGachaBaseRate);
 	InsertRedis("GachaBase", $jsonData);
 }
@@ -118,6 +132,16 @@ echo '<br>';
 WireAllValues();
 echo '<br>';
 GetAllKeysTTL();
+echo '<br>';
+echo GetRedisValue("TotalGachaBaseRate");
+echo '<br>';
+$returnValue = GetRedisValue("GachaBase");
+
+foreach ($returnValue as $key => $value)
+{
+	echo $value['ID'];
+	echo $value['RATE']."<br>";
+}
 ?>
 
 
