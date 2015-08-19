@@ -136,6 +136,7 @@ echo '<br>';
 echo GetRedisValue("TotalGachaBaseRate");
 echo '<br>';
 $returnValue = GetRedisValue("GachaBase");
+echo $returnValue;
 
 foreach ($returnValue as $key => $value)
 {
