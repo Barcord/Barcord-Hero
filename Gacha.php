@@ -32,9 +32,7 @@ function Gacha()
 		{
 			$max = $max + $value;
 			if($rValue >= $min && $rValue < $max)
-			{
-				echo $key.'  '.$rValue.'<br>';
-				
+			{			
 				switch ($key)
 				{
 					case "GUN":
@@ -61,13 +59,15 @@ function Gacha()
 			$min = $min + $value;
 		}
 		
-		echo 'GUN = '. $GUN.'<br>';
-		echo 'SWORD = '. $SWORD.'<br>';
-		echo 'SHIELD = '. $SHIELD.'<br>';
-		echo 'RING = '. $RING.'<br>';
-		echo 'WAND = '. $WAND.'<br>';
-		echo 'SHOES = '. $SHOES.'<br>';
 	}
+	
+
+	echo 'GUN = '. $GUN.'<br>';
+	echo 'SWORD = '. $SWORD.'<br>';
+	echo 'SHIELD = '. $SHIELD.'<br>';
+	echo 'RING = '. $RING.'<br>';
+	echo 'WAND = '. $WAND.'<br>';
+	echo 'SHOES = '. $SHOES.'<br>';
 
 	
 }
