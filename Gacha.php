@@ -3,6 +3,7 @@ require_once 'RedisManager.php';
 
 function Gacha()
 {
+	openRedisConnect();
 	$TotalValue = GetRedisValue("TotalGachaBaseRate");
 	echo $TotalValue.'<br>';
 	if($TotalValue == false)
