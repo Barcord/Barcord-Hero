@@ -5,28 +5,33 @@ function Gacha()
 {
 	openRedisConnect();
 	$TotalValue = GetRedisValue("TotalGachaBaseRate");
-	echo $TotalValue.'<br>';
+	
 	if($TotalValue == false)
 		return ;
 	
 	$returnValue = GetRedisValue_Hash("GachaBase");
-	echo $returnValue.'<br>';
+	
 	if($returnValue == false)
 		return ;
 	
-	$rValue = mt_rand(1,$TotalValue);
-	echo $rValue.'<br>';
 	
-	$min = 0;
-	$max = 0;
-	foreach ($returnValue as $key => $value)
+	for($i ==0 ; $i< 1000 ; $i++)
 	{
-		$max = $max + $value;
-		if($rValue >= $min && $rValue < $max)
+		$rValue = mt_rand(1,$TotalValue);
+		
+		$min = 0;
+		$max = 0;
+		foreach ($returnValue as $key => $value)
 		{
-			echo $key.'  '.$rValue;
+			$max = $max + $value;
+			if($rValue >= $min && $rValue < $max)
+			{
+				echo $key.'  '.$rValue;
+				break;
+			}
+			$min = $min + $value;
 		}
-		$min = $min + $value;
 	}
+
 	
 }
