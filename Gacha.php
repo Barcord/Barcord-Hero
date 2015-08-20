@@ -14,14 +14,15 @@ function Gacha()
 	if($returnValue == false)
 		return ;
 	
-	echo '기본 확률<br>';
+	echo 'BASE RATE<br>';
 	$beforv = 0;
 	foreach ($returnValue as $key => $value)
 	{
 		echo $key.' ';
+		$Tvalue = $value - $beforv;
 		$beforv = $value;
-		$value =  $value - $beforv;
-		echo $value . "<br>";
+	
+		echo $Tvalue . "<br>";
 	}
 	
 	$GUN = 0;
