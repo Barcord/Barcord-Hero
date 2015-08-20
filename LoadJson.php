@@ -39,31 +39,39 @@ function LoadGachaBase()
 }
 
 
-
-openRedisConnect();
-echo '<br>';
-WriteAllKeys();
-echo '<br>';
-WireAllValues();
-echo '<br>';
-
-
-LoadGachaBase();
-echo '<br>';
-WriteAllKeys();
-echo '<br>';
-WireAllValues();
-echo '<br>';
-echo GetRedisValue("TotalGachaBaseRate");
-echo '<br>';
-$returnValue = GetRedisValue_Hash("GachaBase");
-echo $returnValue.'<br>';
-
-foreach ($returnValue as $key => $value)
+function InitRedis()
 {
-	echo $key.' ';
-	echo $value . "<br>";
+	openRedisConnect();
+	echo '<br>';
+	WriteAllKeys();
+	echo '<br>';
+	WireAllValues();
+	echo '<br>';
 }
+
+
+function  CheckRedisValue()
+{
+
+	echo '<br>';
+	WriteAllKeys();
+	echo '<br>';
+	WireAllValues();
+	echo '<br>';
+	echo GetRedisValue("TotalGachaBaseRate");
+	echo '<br>';
+	$returnValue = GetRedisValue_Hash("GachaBase");
+	echo $returnValue.'<br>';
+	
+	foreach ($returnValue as $key => $value)
+	{
+		echo $key.' ';
+		echo $value . "<br>";
+	}
+	
+}
+
+
 ?>
 
 
