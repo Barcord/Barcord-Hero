@@ -14,6 +14,16 @@ function Gacha()
 	if($returnValue == false)
 		return ;
 	
+	echo '기본 확률<br>';
+	$beforv = 0;
+	foreach ($returnValue as $key => $value)
+	{
+		echo $key.' ';
+		$beforv = $value;
+		$value =  $value - $beforv;
+		echo $value . "<br>";
+	}
+	
 	$GUN = 0;
 	$SWORD  = 0;
 	$SHIELD  = 0;
