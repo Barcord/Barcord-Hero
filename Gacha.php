@@ -21,7 +21,7 @@ function Gacha()
 	$WAND  = 0;
 	$SHOES  = 0;
 	
-	for($i ==0 ; $i< 1000 ; $i++)
+	for($i ==0 ; $i< 1 ; $i++)
 	{
 		$rValue = mt_rand(1,$TotalValue);
 		
@@ -30,6 +30,7 @@ function Gacha()
 		
 		foreach ($returnValue as $key => $value)
 		{
+			echo  $value.' '.$min.' '.$max.'<br>';
 			$max = $max + $value;
 			if($rValue >= $min && $rValue < $max)
 			{
