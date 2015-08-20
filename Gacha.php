@@ -31,7 +31,7 @@ function Gacha()
 		foreach ($returnValue as $key => $value)
 		{
 			echo  $value.' '.$min.' '.$max.'<br>';
-			$max = $max + $value;
+			$max = $value;
 			if($rValue >= $min && $rValue < $max)
 			{
 				echo $key.'  '.$rValue.'  '.$min.'  '. $max. '<br>';
@@ -59,7 +59,7 @@ function Gacha()
 				}
 				break;
 			}
-			$min = $min + $value;
+			$min = $value;
 		}
 		
 	}
