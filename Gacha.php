@@ -21,7 +21,7 @@ function Gacha()
 	$WAND  = 0;
 	$SHOES  = 0;
 	
-	for($i ==0 ; $i< 1 ; $i++)
+	for($i ==0 ; $i< 10000 ; $i++)
 	{
 		$rValue = mt_rand(1,$TotalValue);
 		
@@ -29,13 +29,10 @@ function Gacha()
 		$max = 0;
 		
 		foreach ($returnValue as $key => $value)
-		{
-			echo  $value.' '.$min.' '.$max.'<br>';
+		{			
 			$max = $value;
 			if($rValue >= $min && $rValue < $max)
-			{
-				echo $key.'  '.$rValue.'  '.$min.'  '. $max. '<br>';
-				
+			{					
 				switch ($key)
 				{
 					case "GUN":
