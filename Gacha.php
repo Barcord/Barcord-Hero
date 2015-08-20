@@ -32,7 +32,9 @@ function Gacha()
 		{
 			$max = $max + $value;
 			if($rValue >= $min && $rValue < $max)
-			{			
+			{
+				echo $key.'  '.$rValue.'  '.$min.'  '. $max. '<br>';
+				
 				switch ($key)
 				{
 					case "GUN":
