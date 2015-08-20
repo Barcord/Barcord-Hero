@@ -5,8 +5,7 @@ require_once 'LoadJson.php';
 try {
 	if (array_key_exists('WHAT', $_POST)) {
 		$What = $_POST['WHAT'];
-		echo $What;
-		
+				
 		if($What == 'GACHA')
 		{
 			Gacha();						
